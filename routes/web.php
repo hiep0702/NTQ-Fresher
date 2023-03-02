@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DemoController::class, 'show'])->name('demo.show');
+// Route::get('/', [DemoController::class, 'show'])->name('demo.show');
+
+Route::get('/product', [DemoController::class, 'showProduct']);
+Route::get('/productDetails', [DemoController::class, 'productDetails']);
+
+#Login
+Route::get('/login', [DemoController::class, 'login']);
+Route::get('/register', [DemoController::class, 'register']);
+Route::get('/forgotPassword', [DemoController::class, 'forgotPassword']);

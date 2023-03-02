@@ -14,11 +14,34 @@ class DemoService
 	 */
 	public function show()
 	{
-		$data = [
-			'msg' => 'Hello world',
-			'demo_account' => UserConst::DEMO_ACCOUNT
-		];
+		// $data = [
+		// 	'msg' => 'Hello world',
+		// 	'demo_account' => UserConst::DEMO_ACCOUNT
+		// ];
 
-		return view('demo', $data);
+		// return view('demo', $data);
+
+		return view('login.login');
 	}
+	
+	public function register()
+	{
+		return view('login.register');
+	}
+
+	public function forgotPassword()
+	{
+		return view('login.forgotPassword');
+	}
+
+	public function showProduct()
+	{
+		return view('product');
+	}
+
+	public function productDetails()
+	{
+		return view('productDetails');
+	}
+
 }
