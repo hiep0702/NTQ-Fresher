@@ -20,29 +20,8 @@ class DemoController extends Controller
 	 * 
 	 * @return The show method of the DemoService class.
 	 */
-	public function login()
-	{
-		return $this->demoService->show();
-	}
+	
 
-	public function register()
-	{
-		return $this->demoService->register();
-	}
-
-	public function forgotPassword()
-	{
-		return $this->demoService->forgotPassword();
-	}
-
-	public function showProduct()
-	{
-		return $this->demoService->showProduct();
-	}
-
-	public function productDetails()
-	{
-		return $this->demoService->productDetails();
-	}
+	
 
 }
