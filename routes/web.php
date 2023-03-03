@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +20,18 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [DemoController::class, 'show'])->name('demo.show');
 
-Route::get('/product', [DemoController::class, 'showProduct']);
-Route::get('/productDetails', [DemoController::class, 'productDetails']);
 
 #Login
-Route::get('/login', [DemoController::class, 'login']);
-Route::get('/register', [DemoController::class, 'register']);
-Route::get('/forgotPassword', [DemoController::class, 'forgotPassword']);
+Route::get('/login', [LoginController::class, 'login']);
+Route::get('/register', [LoginController::class, 'register']);
+Route::get('/forgotPassword', [LoginController::class, 'forgotPassword']);
+
+#product
+Route::get('/product', [ProductController::class, 'products']);
+Route::get('/productDetails', [ProductController::class, 'productDetails']);
+
+#cart
+Route::get('/cart', [CartController::class, 'cart']);
+
+#checkout
+Route::get('/checkout', [CheckoutController::class, 'show']);
