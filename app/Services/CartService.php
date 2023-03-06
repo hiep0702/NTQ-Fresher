@@ -13,6 +13,6 @@ class CartService
 	
 	 public function show()
 	 {
-		return view('cart');
+		return view('clients.cart');
 	 }
 }

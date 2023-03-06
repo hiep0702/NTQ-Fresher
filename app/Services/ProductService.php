@@ -12,12 +12,12 @@ class ProductService
 	 */
 	public function products()
 	{
-		return view('product');
+		return view('clients.products');
 	}
 
 	public function productDetails()
 	{
-		return view('productDetails');
+		return view('clients.productDetail');
 	}
 
 }
