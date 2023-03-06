@@ -13,6 +13,6 @@ class CheckoutService
 	
 	 public function show()
 	 {
-		return view('checkout');
+		return view('clients.checkout');
 	 }
 }

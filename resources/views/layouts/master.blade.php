@@ -1,9 +1,8 @@
-
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-layout-mode="dark" data-body-image="img-1" data-preloader="disable">
 
 <head>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8" />
     <title>Product Details | Velzon - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +24,10 @@
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 </head>
 
@@ -1834,27 +1837,9 @@
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <!-- end page title -->
 
-                    <div class="row">
-                        @for ($i = 0; $i <12; $i++)
-                            <div class="col-lg-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="swiper product-thumbnail-slider p-2 rounded bg-light">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <img src="assets/images/products/img-8.png" alt="" class="img-fluid d-block" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endfor
-                        <!-- end col -->
-                    </div>
-                    <!-- end row -->
+@yield('content')
+
 
                 </div>
                 <!-- container-fluid -->
@@ -2566,22 +2551,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-    <script src="assets/libs/feather-icons/feather.min.js"></script>
-    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="assets/js/plugins.js"></script>
-
-    <!--Swiper slider js-->
-    <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
-
-    <!-- ecommerce product details init -->
-    <script src="assets/js/pages/ecommerce-product-details.init.js"></script>
-
-    <!-- App js -->
-    <script src="assets/js/app.js"></script>
+    @yield('scripts')
 </body>
 
 </html>
