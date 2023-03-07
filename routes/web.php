@@ -27,8 +27,8 @@ Route::get('/register', [LoginController::class, 'register']);
 Route::get('/forgotPassword', [LoginController::class, 'forgotPassword']);
 
 #product
-Route::get('/product', [ProductController::class, 'products']);
-Route::get('/productDetails', [ProductController::class, 'productDetails']);
+Route::get('/products', [ProductController::class, 'products']);
+Route::get('/productDetail', [ProductController::class, 'productDetails']);
 Route::post('/choose-color', [ProductController::class, 'chooseVar']);
 
 #cart

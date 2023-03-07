@@ -179,21 +179,21 @@
                                         <h5 class="fs-14">Sizes :</h5>
                                         <div class="d-flex flex-wrap gap-2">
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" disabled>
+                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" value="s" disabled>
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio1">S</label>
                                             </div>
 
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio2">
+                                                <input type="radio" class="btn-check" name="productsize-radio" value="m"  id="productsize-radio2">
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio2">M</label>
                                             </div>
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="06 Items Available">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio3">
+                                                <input type="radio" class="btn-check" name="productsize-radio" value="l"  id="productsize-radio3">
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio3">L</label>
                                             </div>
 
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio4" disabled>
+                                                <input type="radio" class="btn-check" name="productsize-radio" value="xl"  id="productsize-radio4" disabled>
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio4">XL</label>
                                             </div>
                                         </div>
@@ -646,32 +646,49 @@
 
 <script>
     var $ = jQuery;
-    $('.choose-color > div').click(function() {
-  
-      let data = {
-        size: 'S',
-        color: $(this).data('id'),
-        _token: $('meta[name="csrf-token"]').attr('content')
-      }
-  
-      $.ajax({
-        url: '/choose-color',
-        type: 'POST',
-        data: data,
-        success: (response) => {
-          response = Object.assign({
-            'price': 0,
-            'orders': 0,
-            'revenue': 0,
-            'images': [],
-            'stocks': 0
-          }, response)
-          console.log($('.regular-price'))
-          $('.regular-price').text(response.price)
-  
+    var data_input = {
+        color: 'violet',
+        size: 's'
+    };
+
+    function chooseProduct(data) {
+        let data_post = {
+            size: data.size,
+            color: data.color,
+            _token: $('meta[name="csrf-token"]').attr('content')
         }
-      })
+    
+        $.ajax({
+            url: '/choose-color',
+            type: 'POST',
+            data: data_post,
+            success: (response) => {
+                response = Object.assign({
+                    'price': 0,
+                    'orders': 0,
+                    'revenue': 0,
+                    'images': [],
+                    'stocks': 0
+                }, response)
+                console.log(response)
+                $('.regular-price').text(response.price)
+    
+            }
+        })
+    }
+
+    $('.btn-check').click(function() {
+        data_input.size = $(this).val();
+        chooseProduct(data_input);
+      console.log($(this).val());
+    });
+
+    $('.choose-color > div').click(function() {
+        data_input.color = $(this).data('id');
+        chooseProduct(data_input)
+      
     })
+
   </script>
 
 @stop
