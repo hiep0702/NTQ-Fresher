@@ -133,7 +133,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted mb-1">No. of Orders :</p>
-                                                <h5 class="mb-0">2,234</h5>
+                                                <h5 class="mb-0"><span class="regular-orders">2,234</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted mb-1">Available Stocks :</p>
-                                                <h5 class="mb-0">1,230</h5>
+                                                <h5 class="mb-0"><span class="regular-stocks">1,230</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted mb-1">Total Revenue :</p>
-                                                <h5 class="mb-0">$60,645</h5>
+                                                <h5 class="mb-0"><span>$</span><span class="regular-revenue">60,645</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -177,23 +177,23 @@
                                 <div class="col-xl-6">
                                     <div class="mt-4">
                                         <h5 class="fs-14">Sizes :</h5>
-                                        <div class="d-flex flex-wrap gap-2">
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" disabled>
+                                        <div class="d-flex flex-wrap gap-2 choose-size">
+                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock" data-id="s">
+                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" >
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio1">S</label>
                                             </div>
 
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
+                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available" data-id="m">
                                                 <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio2">
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio2">M</label>
                                             </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="06 Items Available">
+                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="06 Items Available" data-id="l">
                                                 <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio3">
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio3">L</label>
                                             </div>
 
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio4" disabled>
+                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock" data-id="xl">
+                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio4" >
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio4">XL</label>
                                             </div>
                                         </div>
@@ -668,10 +668,47 @@
           }, response)
           console.log($('.regular-price'))
           $('.regular-price').text(response.price)
+          $('.regular-orders').text(response.orders)
+          $('.regular-stocks').text(response.stocks)
+          $('.regular-revenue').text(response.revenue)
   
         }
       })
     })
+
+    let data_click = {
+                color: 'green',
+                size: 's'
+            };
+
+            function chooseProduct(data) {
+                let data_input = {
+                    color: data.color,
+                    size: data.size,
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                };
+
+                $.ajax({
+                    url: '/choose-size',
+                    type: "post",
+                    data: data,
+                    success: (response) => {
+                    response = Object.assign({
+                        'price': 0,
+                        'orders': 0,
+                        'revenue': 0,
+                        'images': [],
+                        'stocks': 0
+                    }, response)
+                    console.log($('.regular-price'))
+                    $('.regular-price').text(response.price)
+                    $('.regular-orders').text(response.orders)
+                    $('.regular-stocks').text(response.stocks)
+                    $('.regular-revenue').text(response.revenue)
+                }
+                            
+            })
+            }
   </script>
 
 @stop

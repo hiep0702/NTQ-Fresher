@@ -32,7 +32,7 @@ class ProductController extends Controller
 			'violet' => [
 				'price' => 23,
 				'orders' => 1536,
-				//'revenue' => 789798,
+				'revenue' => 8897,
 				'images' => [
 					'/assets/images/products/img-6.png',
 				],
@@ -52,13 +52,13 @@ class ProductController extends Controller
 			'green' => [
 				'price' => 23,
 				'orders' => 2000,
-				//'revenue' => 789798,
+				'revenue' => 7897,
 				'images' => [
 					'/assets/images/products/img-6.png',
 				],
 				'size' => [
 					's' => [
-						'stocks' => 5,
+						'stocks' => 38,
 						'price' => 24,
 					],
 					'm' => [
@@ -102,6 +102,62 @@ class ProductController extends Controller
 		], $var[strtolower($data['color'])] ?? []);
 
 		$size = !empty($var[strtolower($data['color'])]['size'][strtolower($data['size'])]) ? $var[strtolower($data['color'])]['size'][strtolower($data['size'])] : [];
+		$reponse = array_merge($response, $size);
+		unset($reponse['size']);
+		return $reponse;
+	}
+
+	public function chooseSize(Request $request)
+	{
+		$data = $request->all();
+		$var = [
+			's' => [
+				'price' => 23,
+				'orders' => 1536,
+				'stocks' => 5,
+				'revenue' => 8897,
+				'images' => [
+					'/assets/images/products/img-6.png',
+				],
+			],
+			'm' => [
+				'price' => 25,
+				'orders' => 2336,
+				'stocks' => 7,
+				'revenue' => 3397,
+				'images' => [
+					'/assets/images/products/img-6.png',
+				],
+			],
+			'l' => [
+				'price' => 30,
+				'orders' => 1246,
+				'stocks' => 6,
+				'revenue' => 4897,
+				'images' => [
+					'/assets/images/products/img-6.png',
+				],
+			],
+			'xl' => [
+				'price' => 33,
+				'orders' => 536,
+				'stocks' => 15,
+				'revenue' => 2297,
+				'images' => [
+					'/assets/images/products/img-6.png',
+				],
+			],
+		];
+
+		$response = array_merge([
+			'price' => 0,
+			'orders' => 0,
+			'revenue' => 0,
+			'images' => [],
+			'stocks' => 0
+		], $var[strtolower($data['size'])] ?? []);
+
+		$size = !empty($var[strtolower($data['size'])]) ? $var[strtolower($data['color'])] : [];
 		$reponse = array_merge($response, $size);
 		unset($reponse['size']);
 		return $reponse;
