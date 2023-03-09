@@ -133,7 +133,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted mb-1">No. of Orders :</p>
-                                                <h5 class="mb-0">2,234</h5>
+                                                <h5 class="mb-0"><span class="regular-orders">2,234</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted mb-1">Available Stocks :</p>
-                                                <h5 class="mb-0">1,230</h5>
+                                                <h5 class="mb-0"><span class="regular-stocks">1,230</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted mb-1">Total Revenue :</p>
-                                                <h5 class="mb-0">$60,645</h5>
+                                                <h5 class="mb-0"><span>$</span></span><span class="regular-revenue">60,645</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +179,7 @@
                                         <h5 class="fs-14">Sizes :</h5>
                                         <div class="d-flex flex-wrap gap-2">
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" value="s" disabled>
+                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" value="s" >
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio1">S</label>
                                             </div>
 
@@ -193,7 +193,7 @@
                                             </div>
 
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                <input type="radio" class="btn-check" name="productsize-radio" value="xl"  id="productsize-radio4" disabled>
+                                                <input type="radio" class="btn-check" name="productsize-radio" value="xl"  id="productsize-radio4" >
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio4">XL</label>
                                             </div>
                                         </div>
@@ -206,7 +206,7 @@
                                         <h5 class="fs-14">Colors :</h5>
                                         <div class="d-flex flex-wrap gap-2 choose-color" >
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock" data-id="green">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-primary" disabled>
+                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-primary" >
                                                     <i class="ri-checkbox-blank-circle-fill"></i>
                                                 </button>
                                             </div>
@@ -217,31 +217,6 @@
                                             </div>
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="03 Items Available" data-id="violet">
                                                 <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-success">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="02 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-info">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="01 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-warning">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-danger">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="03 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-light">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-dark">
                                                     <i class="ri-checkbox-blank-circle-fill"></i>
                                                 </button>
                                             </div>
@@ -672,6 +647,9 @@
                 }, response)
                 console.log(response)
                 $('.regular-price').text(response.price)
+                $('.regular-orders').text(response.orders)
+                $('.regular-revenue').text(response.revenue)
+                $('.regular-stocks').text(response.stocks)
     
             }
         })
@@ -680,13 +658,12 @@
     $('.btn-check').click(function() {
         data_input.size = $(this).val();
         chooseProduct(data_input);
-      console.log($(this).val());
+        console.log($(this).val());
     });
 
     $('.choose-color > div').click(function() {
         data_input.color = $(this).data('id');
-        chooseProduct(data_input)
-      
+        chooseProduct(data_input)     
     })
 
   </script>

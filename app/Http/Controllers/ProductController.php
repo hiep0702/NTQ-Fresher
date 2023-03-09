@@ -32,9 +32,9 @@ class ProductController extends Controller
 			'violet' => [
 				'price' => 23,
 				'orders' => 1536,
-				//'revenue' => 789798,
+				'revenue' => 8897,
 				'images' => [
-					'/assets/images/products/img-6.png',
+					'assets/images/products/img-8.png',
 				],
 				'size' => [
 					's' => [
@@ -52,7 +52,7 @@ class ProductController extends Controller
 			'green' => [
 				'price' => 23,
 				'orders' => 2000,
-				//'revenue' => 789798,
+				'revenue' => 7897,
 				'images' => [
 					'/assets/images/products/img-6.png',
 				],
@@ -74,7 +74,7 @@ class ProductController extends Controller
 				'orders' => 2030,
 				'revenue' => 55555,
 				'images' => [
-					'/assets/images/products/img-6.png',
+					'/assets/images/products/img-1.png',
 				],
 				'size' => [
 					's' => [

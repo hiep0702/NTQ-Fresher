@@ -36,3 +36,5 @@ Route::get('/cart', [CartController::class, 'cart']);
 
 #checkout
 Route::get('/checkout', [CheckoutController::class, 'show']);
+
+Route::post('/pay', [CheckoutController::class, 'checkout'])->name('pay');
