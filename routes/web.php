@@ -30,6 +30,7 @@ Route::get('/forgotPassword', [LoginController::class, 'forgotPassword']);
 Route::get('/products', [ProductController::class, 'products']);
 Route::get('/productDetail', [ProductController::class, 'productDetails']);
 Route::post('/choose-color', [ProductController::class, 'chooseVar']);
+Route::post('/choose-size', [ProductController::class, 'chooseSize']);
 
 #cart
 Route::get('/cart', [CartController::class, 'cart']);

@@ -165,6 +165,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted mb-1">Total Revenue :</p>
+
                                                 <h5 class="mb-0"><span>$</span></span><span class="regular-revenue">60,645</span></h5>
                                             </div>
                                         </div>
@@ -177,6 +178,7 @@
                                 <div class="col-xl-6">
                                     <div class="mt-4">
                                         <h5 class="fs-14">Sizes :</h5>
+
                                         <div class="d-flex flex-wrap gap-2">
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
                                                 <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" value="s" >
@@ -194,6 +196,7 @@
 
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
                                                 <input type="radio" class="btn-check" name="productsize-radio" value="xl"  id="productsize-radio4" >
+
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio4">XL</label>
                                             </div>
                                         </div>
@@ -631,6 +634,7 @@
             size: data.size,
             color: data.color,
             _token: $('meta[name="csrf-token"]').attr('content')
+  
         }
     
         $.ajax({
