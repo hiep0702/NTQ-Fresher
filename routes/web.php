@@ -27,8 +27,8 @@ Route::get('/register', [LoginController::class, 'register']);
 Route::get('/forgotPassword', [LoginController::class, 'forgotPassword']);
 
 #product
-Route::get('/product', [ProductController::class, 'products']);
-Route::get('/productDetails', [ProductController::class, 'productDetails']);
+Route::get('/products', [ProductController::class, 'products']);
+Route::get('/productDetail', [ProductController::class, 'productDetails']);
 Route::post('/choose-color', [ProductController::class, 'chooseVar']);
 Route::post('/choose-size', [ProductController::class, 'chooseSize']);
 
@@ -37,3 +37,5 @@ Route::get('/cart', [CartController::class, 'cart']);
 
 #checkout
 Route::get('/checkout', [CheckoutController::class, 'show']);
+
+Route::post('/pay', [CheckoutController::class, 'checkout'])->name('pay');

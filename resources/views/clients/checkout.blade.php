@@ -59,96 +59,88 @@
                                 <p class="text-muted mb-4">Please fill all information below</p>
                             </div>
 
-                            <div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <label for="billinginfo-firstName" class="form-label">First Name</label>
-                                            <input type="text" class="form-control" id="billinginfo-firstName" placeholder="Enter first name" value="">
+                            <form action="" method="post" id="form-login">
+                                @csrf
+                                <div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="firstName" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Enter first name" >
+                                                <span id="span-firstName" style="color: red"></span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="lastName" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter last name" >
+                                                <span id="span-lastName" style="color: red"></span>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <label for="billinginfo-lastName" class="form-label">Last Name</label>
-                                            <input type="text" class="form-control" id="billinginfo-lastName" placeholder="Enter last name" value="">
+    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                                <span id="span-email" style="color: red"></span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="phone" class="form-label">Phone</label>
+                                                <input type="text" class="form-control" name='phone' id="phone" placeholder="Enter phone no.">
+                                                <span id="span-phone" style="color: red"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <label for="billinginfo-email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                                            <input type="email" class="form-control" id="billinginfo-email" placeholder="Enter email">
-                                        </div>
+    
+                                    <div class="mb-3">
+                                        <label for="address" class="form-label">Address</label>
+                                        <textarea class="form-control" name="address" id="address" placeholder="Enter address" rows="3"></textarea>
+                                        <span id="span-address" style="color: red"></span>
                                     </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <label for="billinginfo-phone" class="form-label">Phone</label>
-                                            <input type="text" class="form-control" id="billinginfo-phone" placeholder="Enter phone no.">
+    
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="country" class="form-label">Country</label>
+                                                <select class="form-select" id="country" data-plugin="choices">
+                                                    <option value="">Select Country...</option>
+                                                    <option selected>United States</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="billinginfo-address" class="form-label">Address</label>
-                                    <textarea class="form-control" id="billinginfo-address" placeholder="Enter address" rows="3"></textarea>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="country" class="form-label">Country</label>
-                                            <select class="form-select" id="country" data-plugin="choices">
-                                                <option value="">Select Country...</option>
-                                                <option selected>United States</option>
-                                            </select>
+    
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="state" class="form-label">State</label>
+                                                <select class="form-select" id="state" data-plugin="choices">
+                                                    <option value="">Select State...</option>
+                                                    <option value="Alabama">Alabama</option>
+                                                    <option value="Alaska">Alaska</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="state" class="form-label">State</label>
-                                            <select class="form-select" id="state" data-plugin="choices">
-                                                <option value="">Select State...</option>
-                                                <option value="Alabama">Alabama</option>
-                                                <option value="Alaska">Alaska</option>
-                                                <option value="American Samoa">American Samoa</option>
-                                                <option value="California" selected>California</option>
-                                                <option value="Colorado">Colorado</option>
-                                                <option value="District Of Columbia">District Of Columbia</option>
-                                                <option value="Florida">Florida</option>
-                                                <option value="Georgia">Georgia</option>
-                                                <option value="Guam">Guam</option>
-                                                <option value="Hawaii">Hawaii</option>
-                                                <option value="Idaho">Idaho</option>
-                                                <option value="Kansas">Kansas</option>
-                                                <option value="Louisiana">Louisiana</option>
-                                                <option value="Montana">Montana</option>
-                                                <option value="Nevada">Nevada</option>
-                                                <option value="New Jersey">New Jersey</option>
-                                                <option value="New Mexico">New Mexico</option>
-                                                <option value="New York">New York</option>
-                                            </select>
+    
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="zip" class="form-label">Zip Code</label>
+                                                <input type="text" class="form-control" id="zip" name="zip" placeholder="Enter zip code">
+                                                <span id="span-zip" style="color: red"></span>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="zip" class="form-label">Zip Code</label>
-                                            <input type="text" class="form-control" id="zip" placeholder="Enter zip code">
-                                        </div>
+                                    </div>                      
+                                    <div class="d-flex align-items-start gap-3 mt-3">
+                                        <button type="button" class="btn btn-primary btn-label right ms-auto nexttab" id="btn" data-nexttab="pills-bill-address-tab">
+                                            <i class="ri-truck-line label-icon align-middle fs-16 ms-2"></i>Proceed to Shipping
+                                        </button>
                                     </div>
                                 </div>
-
-                                <div class="d-flex align-items-start gap-3 mt-3">
-                                    <button type="button" class="btn btn-primary btn-label right ms-auto nexttab" data-nexttab="pills-bill-address-tab">
-                                        <i class="ri-truck-line label-icon align-middle fs-16 ms-2"></i>Proceed to Shipping
-                                    </button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         <!-- end tab pane -->
 
@@ -462,5 +454,43 @@
 
 <!-- App js -->
 <script src="assets/js/app.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#btn').click(function (e) { 
+        e.preventDefault();
+        // console.log($('#firstName').val());
+        let data = {
+            firstName : $('#firstName').val(),
+            lastName : $('#lastName').val(),
+            email : $('#email').val(),
+            phone : $('#phone').val(),
+            address : $('#address').val(),
+            zip : $('#zip').val(),
+            _token: $('meta[name="csrf-token"]').attr('content')
+        }
+        // console.log(data);
+        $.ajax({
+            type: "post",
+            url: "/pay",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: 'application/json',
+            success: function (response) {
+                console.log(response);   
+            },
+            error: function(response){
+                // console.log(response.responseJSON.errors);
+                $('#span-firstName').html(response.responseJSON.errors.firstName)
+                $('#span-lastName').html(response.responseJSON.errors.lastName)
+                $('#span-email').html(response.responseJSON.errors.email)
+                $('#span-phone').html(response.responseJSON.errors.phone)
+                $('#span-address').html(response.responseJSON.errors.address)
+                $('#span-zip').html(response.responseJSON.errors.zip)
+            }
+        });
+    });
+    }); 
+</script>
 
 @endsection

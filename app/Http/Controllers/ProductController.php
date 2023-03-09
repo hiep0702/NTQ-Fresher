@@ -34,7 +34,7 @@ class ProductController extends Controller
 				'orders' => 1536,
 				'revenue' => 8897,
 				'images' => [
-					'/assets/images/products/img-6.png',
+					'assets/images/products/img-8.png',
 				],
 				'size' => [
 					's' => [
@@ -74,7 +74,7 @@ class ProductController extends Controller
 				'orders' => 2030,
 				'revenue' => 55555,
 				'images' => [
-					'/assets/images/products/img-6.png',
+					'/assets/images/products/img-1.png',
 				],
 				'size' => [
 					's' => [

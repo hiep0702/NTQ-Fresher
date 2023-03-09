@@ -165,7 +165,8 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted mb-1">Total Revenue :</p>
-                                                <h5 class="mb-0"><span>$</span><span class="regular-revenue">60,645</span></h5>
+
+                                                <h5 class="mb-0"><span>$</span></span><span class="regular-revenue">60,645</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -177,23 +178,25 @@
                                 <div class="col-xl-6">
                                     <div class="mt-4">
                                         <h5 class="fs-14">Sizes :</h5>
-                                        <div class="d-flex flex-wrap gap-2 choose-size">
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock" data-id="s">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" >
+
+                                        <div class="d-flex flex-wrap gap-2">
+                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
+                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" value="s" >
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio1">S</label>
                                             </div>
 
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available" data-id="m">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio2">
+                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
+                                                <input type="radio" class="btn-check" name="productsize-radio" value="m"  id="productsize-radio2">
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio2">M</label>
                                             </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="06 Items Available" data-id="l">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio3">
+                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="06 Items Available">
+                                                <input type="radio" class="btn-check" name="productsize-radio" value="l"  id="productsize-radio3">
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio3">L</label>
                                             </div>
 
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock" data-id="xl">
-                                                <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio4" >
+                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
+                                                <input type="radio" class="btn-check" name="productsize-radio" value="xl"  id="productsize-radio4" >
+
                                                 <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio4">XL</label>
                                             </div>
                                         </div>
@@ -206,7 +209,7 @@
                                         <h5 class="fs-14">Colors :</h5>
                                         <div class="d-flex flex-wrap gap-2 choose-color" >
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock" data-id="green">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-primary" disabled>
+                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-primary" >
                                                     <i class="ri-checkbox-blank-circle-fill"></i>
                                                 </button>
                                             </div>
@@ -217,31 +220,6 @@
                                             </div>
                                             <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="03 Items Available" data-id="violet">
                                                 <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-success">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="02 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-info">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="01 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-warning">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-danger">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="03 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-light">
-                                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                                </button>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
-                                                <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-dark">
                                                     <i class="ri-checkbox-blank-circle-fill"></i>
                                                 </button>
                                             </div>
@@ -646,69 +624,52 @@
 
 <script>
     var $ = jQuery;
-    $('.choose-color > div').click(function() {
-  
-      let data = {
-        size: 'S',
-        color: $(this).data('id'),
-        _token: $('meta[name="csrf-token"]').attr('content')
-      }
-  
-      $.ajax({
-        url: '/choose-color',
-        type: 'POST',
-        data: data,
-        success: (response) => {
-          response = Object.assign({
-            'price': 0,
-            'orders': 0,
-            'revenue': 0,
-            'images': [],
-            'stocks': 0
-          }, response)
-          console.log($('.regular-price'))
-          $('.regular-price').text(response.price)
-          $('.regular-orders').text(response.orders)
-          $('.regular-stocks').text(response.stocks)
-          $('.regular-revenue').text(response.revenue)
+    var data_input = {
+        color: 'violet',
+        size: 's'
+    };
+
+    function chooseProduct(data) {
+        let data_post = {
+            size: data.size,
+            color: data.color,
+            _token: $('meta[name="csrf-token"]').attr('content')
   
         }
-      })
+    
+        $.ajax({
+            url: '/choose-color',
+            type: 'POST',
+            data: data_post,
+            success: (response) => {
+                response = Object.assign({
+                    'price': 0,
+                    'orders': 0,
+                    'revenue': 0,
+                    'images': [],
+                    'stocks': 0
+                }, response)
+                console.log(response)
+                $('.regular-price').text(response.price)
+                $('.regular-orders').text(response.orders)
+                $('.regular-revenue').text(response.revenue)
+                $('.regular-stocks').text(response.stocks)
+    
+            }
+        })
+    }
+
+    $('.btn-check').click(function() {
+        data_input.size = $(this).val();
+        chooseProduct(data_input);
+        console.log($(this).val());
+    });
+
+    $('.choose-color > div').click(function() {
+        data_input.color = $(this).data('id');
+        chooseProduct(data_input)     
     })
 
-    let data_click = {
-                color: 'green',
-                size: 's'
-            };
-
-            function chooseProduct(data) {
-                let data_input = {
-                    color: data.color,
-                    size: data.size,
-                    _token: $('meta[name="csrf-token"]').attr('content')
-                };
-
-                $.ajax({
-                    url: '/choose-size',
-                    type: "post",
-                    data: data,
-                    success: (response) => {
-                    response = Object.assign({
-                        'price': 0,
-                        'orders': 0,
-                        'revenue': 0,
-                        'images': [],
-                        'stocks': 0
-                    }, response)
-                    console.log($('.regular-price'))
-                    $('.regular-price').text(response.price)
-                    $('.regular-orders').text(response.orders)
-                    $('.regular-stocks').text(response.stocks)
-                    $('.regular-revenue').text(response.revenue)
-                }
-                            
-            })
-            }
   </script>
 
 @stop
