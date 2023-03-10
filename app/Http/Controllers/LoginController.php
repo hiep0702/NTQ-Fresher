@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Services\LoginService;
 
 use Illuminate\Http\Request;
@@ -29,5 +31,23 @@ class LoginController extends Controller
 	public function forgotPassword()
 	{
 		return $this->loginService->forgotPassword();
+	}
+
+	public function singIn(LoginRequest $request)
+	{
+		try {
+			return response()->json(['success' => 'login success']);
+		} catch (\Throwable $th) {
+			return response()->json();
+		}
+	}
+
+	public function singUp(RegisterRequest $request)
+	{
+		try {
+			return response()->json(['success' => 'register success']);
+		} catch (\Throwable $th) {
+			return response()->json();
+		}
 	}
 }

@@ -26,6 +26,9 @@ Route::get('/login', [LoginController::class, 'login']);
 Route::get('/register', [LoginController::class, 'register']);
 Route::get('/forgotPassword', [LoginController::class, 'forgotPassword']);
 
+Route::post('/singin', [LoginController::class, 'singIn']);
+Route::post('/singup', [LoginController::class, 'singUp']);
+
 #product
 Route::get('/products', [ProductController::class, 'products']);
 Route::get('/productDetail', [ProductController::class, 'productDetails']);

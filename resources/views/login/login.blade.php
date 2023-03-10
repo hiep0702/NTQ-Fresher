@@ -3,6 +3,7 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-layout-mode="dark" data-body-image="img-1" data-preloader="disable">
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta charset="utf-8" />
     <title>Sign In | Velzon - Admin & Dashboard Template</title>
@@ -22,6 +23,11 @@
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
 
 </head>
 
@@ -55,11 +61,12 @@
                                     <p class="text-muted">Sign in to continue to Velzon.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="index.html">
-
+                                    <form action="" method="post">
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                            <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+                                            <span id="span-username" style="color: red"></span>
                                         </div>
 
                                         <div class="mb-3">
@@ -68,8 +75,9 @@
                                             </div>
                                             <label class="form-label" for="password-input">Password</label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
-                                                <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input">
+                                                <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password" name="password">
                                                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                <span id="span-password" style="color: red"></span>
                                             </div>
                                         </div>
 
@@ -79,7 +87,7 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <button class="btn btn-primary w-100" type="submit">Sign In</button>
+                                            <button id="btn-singin" class="btn btn-primary w-100" type="button">Sign In</button>
                                         </div>
 
                                         <div class="mt-4 text-center">
@@ -144,6 +152,37 @@
     <script src="assets/js/pages/particles.app.js"></script>
     <!-- password-addon init -->
     <script src="assets/js/pages/password-addon.init.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#btn-singin').click(function (e) { 
+            e.preventDefault();
+
+            let data = {
+                username: $('#username').val(),
+                password: $('#password').val(),
+                _token: $('meta[name="csrf-token"]').attr('content')
+            }
+            console.log(data);
+            $.ajax({
+                type: "post",
+                url: "/singin",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json',
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (response) {
+                    // console.log(response.responseJSON.errors);
+                    $('#span-username').html(response.responseJSON.errors.username)
+                    $('#span-password').html(response.responseJSON.errors.password)
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>

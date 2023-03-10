@@ -3,6 +3,7 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-layout-mode="dark" data-body-image="img-1" data-preloader="disable">
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta charset="utf-8" />
     <title>Sign Up | Velzon - Admin & Dashboard Template</title>
@@ -23,6 +24,9 @@
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 </head>
 
 <body>
@@ -56,32 +60,35 @@
                                     <p class="text-muted">Get your free velzon account now</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form class="needs-validation" novalidate action="index.html">
+                                    <form class="needs-validation" novalidate action="" method="post">
 
                                         <div class="mb-3">
                                             <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
-                                            <input type="email" class="form-control" id="useremail" placeholder="Enter email address" required>
+                                            <input type="email" class="form-control" id="useremail" name="useremail" placeholder="Enter email address" required>
                                             <div class="invalid-feedback">
                                                 Please enter email
                                             </div>
+                                            <span id="span-useremail" style="color: red"></span>
                                         </div>
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
                                             <div class="invalid-feedback">
                                                 Please enter username
                                             </div>
+                                            <span id="span-username" style="color: red"></span>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label" for="password-input">Password</label>
                                             <div class="position-relative auth-pass-inputgroup">
-                                                <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" name="password" id="password" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                 <div class="invalid-feedback">
                                                     Please enter password
                                                 </div>
                                             </div>
+                                            <span id="span-password" style="color: red"></span>
                                         </div>
 
                                         <div class="mb-4">
@@ -97,7 +104,7 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <button class="btn btn-success w-100" type="submit">Sign Up</button>
+                                            <button class="btn btn-success w-100" type="button" id="btn-singup">Sign Up</button>
                                         </div>
 
                                         <div class="mt-4 text-center">
@@ -166,6 +173,38 @@
     <script src="assets/js/pages/form-validation.init.js"></script>
     <!-- password create init -->
     <script src="assets/js/pages/passowrd-create.init.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#btn-singup').click(function (e) { 
+                e.preventDefault();
+                
+                let data = {
+                    useremail: $('#useremail').val(),
+                    username: $('#username').val(),
+                    password: $('#password').val(),
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                }
+                console.log(data);
+                $.ajax({
+                    type: "post",
+                    url: "/singup",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: 'application/json',
+                    success: function (response) {
+                        console.log(response);
+                    },
+                    error: function (response) {
+                        console.log(response.responseJSON.errors);
+                        $('#span-useremail').html(response.responseJSON.errors.useremail)
+                        $('#span-username').html(response.responseJSON.errors.username)
+                        $('#span-password').html(response.responseJSON.errors.password)
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
