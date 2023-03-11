@@ -42,12 +42,20 @@ class LoginController extends Controller
 		}
 	}
 
-	public function singUp(RegisterRequest $request)
+	public function singUp(Request $request)
 	{
-		try {
-			return response()->json(['success' => 'register success']);
-		} catch (\Throwable $th) {
-			return response()->json();
-		}
+		$data = $request->all();
+		// dd($data);
+
+		
+		$register = $this->loginService->store($data);
+
+		return view('login.register', compact('register'));
+
+		// try {
+		// 	return response()->json(['success' => 'register success']);
+		// } catch (\Throwable $th) {
+		// 	return response()->json();
+		// }
 	}
 }

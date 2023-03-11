@@ -2,8 +2,16 @@
 
 namespace App\Services;
 
+use App\Repositories\RegisterRepository;
+
 class LoginService
 {
+	protected $registerRepository;
+
+	public function __construct(RegisterRepository $registerRepository)
+	{
+		$this->registerRepository = $registerRepository;
+	}
 
 	/**
 	 * The function show() returns the view Main.php with the data 
@@ -23,6 +31,11 @@ class LoginService
 	public function forgotPassword()
 	{
 		return view('login.forgotPassword');
+	}
+
+	public function store($data)
+	{
+		return $this->registerRepository->create($data);
 	}
 
 }

@@ -60,23 +60,23 @@
                                     <p class="text-muted">Get your free velzon account now</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form class="needs-validation" novalidate action="" method="post">
+                                    <form class="needs-validation" novalidate action="{{ URL::to('/singUp') }}" method="post">
 
                                         <div class="mb-3">
-                                            <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
-                                            <input type="email" class="form-control" id="useremail" name="useremail" placeholder="Enter email address" required>
+                                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" >
                                             <div class="invalid-feedback">
                                                 Please enter email
                                             </div>
-                                            <span id="span-useremail" style="color: red"></span>
+                                            <span id="span-email" style="color: red"></span>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                                            <label for="name" class="form-label">Username <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" >
                                             <div class="invalid-feedback">
                                                 Please enter username
                                             </div>
-                                            <span id="span-username" style="color: red"></span>
+                                            <span id="span-name" style="color: red"></span>
                                         </div>
 
                                         <div class="mb-3">
@@ -89,6 +89,42 @@
                                                 </div>
                                             </div>
                                             <span id="span-password" style="color: red"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="birthday" class="form-label">Birthday <span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Enter birthday" >
+                                            <div class="invalid-feedback">
+                                                Please enter birthday
+                                            </div>
+                                            <span id="span-birthday" style="color: red"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="phone_number" class="form-label">Phone number <span class="text-danger">*</span></label>
+                                            <input type="number" class="form-control" id="phone_number" name="phone_number" placeholder="Enter phone number" >
+                                            <div class="invalid-feedback">
+                                                Please enter phone_number
+                                            </div>
+                                            <span id="span-phone_number" style="color: red"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="gender" name="gender" placeholder="Enter gender" >
+                                            <div class="invalid-feedback">
+                                                Please enter gender
+                                            </div>
+                                            <span id="span-gender" style="color: red"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="avatar" class="form-label">Avatar <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="avatar" name="avatar" placeholder="Enter avatar">
+                                            <div class="invalid-feedback">
+                                                Please enter avatar
+                                            </div>
+                                            <span id="span-avatar" style="color: red"></span>
                                         </div>
 
                                         <div class="mb-4">
@@ -180,9 +216,13 @@
                 e.preventDefault();
                 
                 let data = {
-                    useremail: $('#useremail').val(),
-                    username: $('#username').val(),
+                    email: $('#email').val(),
+                    name: $('#name').val(),
                     password: $('#password').val(),
+                    birthday: $('#birthday').val(),
+                    phone_number: $('#phone_number').val(),
+                    gender: $('#gender').val(),
+                    avatar: $('#avatar').val(),
                     _token: $('meta[name="csrf-token"]').attr('content')
                 }
                 console.log(data);
@@ -197,9 +237,13 @@
                     },
                     error: function (response) {
                         console.log(response.responseJSON.errors);
-                        $('#span-useremail').html(response.responseJSON.errors.useremail)
-                        $('#span-username').html(response.responseJSON.errors.username)
+                        $('#span-email').html(response.responseJSON.errors.email)
+                        $('#span-name').html(response.responseJSON.errors.name)
                         $('#span-password').html(response.responseJSON.errors.password)
+                        $('#span-birthday').html(response.responseJSON.errors.birthday)
+                        $('#span-phone_number').html(response.responseJSON.errors.phone_number)
+                        $('#span-gender').html(response.responseJSON.errors.gender)
+                        $('#span-avatar').html(response.responseJSON.errors.avatar)
                     }
                 });
             });
