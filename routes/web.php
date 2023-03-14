@@ -31,9 +31,14 @@ Route::post('/singup', [LoginController::class, 'singUp']);
 
 #product
 Route::get('/products', [ProductController::class, 'products']);
-Route::get('/productDetail', [ProductController::class, 'productDetails']);
+Route::get('/product-detail', [ProductController::class, 'productDetails']);
+Route::get('/create-product', [ProductController::class, 'create']);
+Route::get('/edit-product/{id}', [ProductController::class, 'edit']);
+
 Route::post('/choose-color', [ProductController::class, 'chooseVar']);
 Route::post('/choose-size', [ProductController::class, 'chooseSize']);
+Route::post('/store-product', [ProductController::class, 'store']);
+Route::post('/update-product/{id}', [ProductController::class, 'update']);
 
 #cart
 Route::get('/cart', [CartController::class, 'cart']);

@@ -4,7 +4,33 @@
     <div class="container-fluid">
         <!-- end page title -->
         <div class="row">
-            @for ($i = 0; $i < 12; $i++)
+            @foreach ($data as $data)
+            <div class="col-sm-4">
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo text-center">   
+                            <form>
+                                @csrf
+                                <input type="hidden" value="{{ $data->id }}"
+                                    class="cart_product_id_{{ $data->id }}">
+                                <input type="hidden" value="{{ $data->title }}"
+                                    class="cart_product_name_{{ $data->id }}">
+                                <input type="hidden" value="{{ $data->image }}"
+                                    class="cart_product_image_{{ $data->id }}">
+                                <input type="hidden" value="1" class="cart_product_qty_{{ $data->id }}">
+                                <a href="{{ URL::to('/product-detail/' . $data->id) }}">
+                                    <img src="{{ URL::to('public/uploads/product/' . $data->image) }}" width="150"
+                                        height="200" margin-right="50px" alt="" />
+                                    <h2>{{ number_format($data->price) . ' ' . 'VNĐ' }}</h2>
+                                    <p>{{ $data->title }}</p>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            {{-- @for ($i = 0; $i < 12; $i++)
                 <div class="col-lg-3">
                     <div class="card">
                         <div class="card-body">
@@ -19,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endfor --}}
             <!-- end col -->
         </div>
         <!-- end row -->

@@ -20,9 +20,37 @@ class ProductController extends Controller
 		return $this->productService->products();
 	}
 
-	public function productDetails()
+	public function productDetails($id)
 	{
-		return $this->productService->productDetails();
+		return $this->productService->productDetails($id);
+	}
+
+	public function create()
+	{
+		return view('clients.createProduct');
+	}
+
+	public function store(Request $request)
+	{
+		$data = $request->all();
+		
+		$product = $this->productService->store($data);
+
+		return view('clients.products', compact('product'));
+	}
+
+	public function edit()
+	{
+		return view('clients.editProduct');
+	}
+
+	public function update($id, Request $request)
+	{
+		$data = $request->all();
+
+		$product = $this->productService->update($data);
+
+
 	}
 
 	public function chooseVar(Request $request)
