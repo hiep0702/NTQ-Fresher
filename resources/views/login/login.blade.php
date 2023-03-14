@@ -61,12 +61,12 @@
                                     <p class="text-muted">Sign in to continue to Velzon.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="" method="post">
+                                    <form action="{{ URL::to('/singIn') }}" method="post">
                                         @csrf
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Username</label>
-                                            <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
-                                            <span id="span-username" style="color: red"></span>
+                                            <label for="name" class="form-label">Username</label>
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+                                            <span id="span-name" style="color: red"></span>
                                         </div>
 
                                         <div class="mb-3">
@@ -109,7 +109,7 @@
                         <!-- end card -->
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Don't have an account ? <a href="auth-signup-basic.html" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
+                            <p class="mb-0">Don't have an account ? <a href="{{ URL::to('/register') }}" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
                         </div>
 
                     </div>
@@ -159,7 +159,7 @@
             e.preventDefault();
 
             let data = {
-                username: $('#username').val(),
+                name: $('#name').val(),
                 password: $('#password').val(),
                 _token: $('meta[name="csrf-token"]').attr('content')
             }
@@ -175,7 +175,7 @@
                 },
                 error: function (response) {
                     // console.log(response.responseJSON.errors);
-                    $('#span-username').html(response.responseJSON.errors.username)
+                    $('#span-name').html(response.responseJSON.errors.name)
                     $('#span-password').html(response.responseJSON.errors.password)
                 }
             });

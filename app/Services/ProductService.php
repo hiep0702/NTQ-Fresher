@@ -2,8 +2,16 @@
 
 namespace App\Services;
 
+use App\Repositories\ProductRepository;
+
 class ProductService
 {
+	protected $productRepository;
+
+	public function __construct(ProductRepository $productRepository)
+	{
+		$this->productRepository = $productRepository;
+	}
 
 	/**
 	 * The function show() returns the view Main.php with the data 
@@ -12,12 +20,25 @@ class ProductService
 	 */
 	public function products()
 	{
-		return view('clients.products');
+		$data = $this->productRepository->getAll();
+
+		return view('clients.products', compact('data'));
 	}
 
-	public function productDetails()
+	public function productDetails($id)
 	{
-		return view('clients.productDetail');
+		$data = $this->productRepository->find($id);
+
+		return view('clients.productDetail', compact('data'));
 	}
 
+	public function store($data)
+	{
+		return $this->productRepository->create($data);
+	}
+
+	public function update($data)
+	{
+		return $this->productRepository->update($data);
+	}
 }

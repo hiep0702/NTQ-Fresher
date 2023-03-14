@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Models\Admin;
 use App\Services\LoginService;
 
 use Illuminate\Http\Request;
@@ -35,18 +36,28 @@ class LoginController extends Controller
 
 	public function singIn(LoginRequest $request)
 	{
-		try {
-			return response()->json(['success' => 'login success']);
-		} catch (\Throwable $th) {
-			return response()->json();
+		$name = $request->name;
+		$password = $request->password;
+
+		if(Admin::where('name', $name)->where('password',$password)->get())
+		{
+			return view('clients.products');
 		}
+		else
+		{
+			return view('login.login');
+		}
+
+		// try {
+		// 	return response()->json(['success' => 'login success']);
+		// } catch (\Throwable $th) {
+		// 	return response()->json();
+		// }
 	}
 
-	public function singUp(Request $request)
+	public function singUp(RegisterRequest $request)
 	{
 		$data = $request->all();
-		// dd($data);
-
 		
 		$register = $this->loginService->store($data);
 
