@@ -27,9 +27,11 @@ return new class extends Migration
             $table->integer('rating')->nullable();
             $table->string('author')->nullable();;
             $table->string('product_type')->nullable();
-            $table->integer('referProductId')->nullable();
+            $table->integer('reference_product')->nullable();
             $table->float('tax')->nullable();
             $table->string('ship')->nullable();
+            $table->string('type')->nullable();
+            $table->string('is_attribute')->nullable();
             $table->timestamps();
         });
     }
