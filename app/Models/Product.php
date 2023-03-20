@@ -11,8 +11,21 @@ class Product extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'description',
-        'price',
         'image',
+        'regular_price',
+        'sale_price',
+        'stock',
+        'status',
+        'count_order',
+        'rating',
+        'author',
+        'product_type',
+        'reference_product',
+        'tax',
+        'ship',
+        'type',
+        'is_attribute',
     ];
 }

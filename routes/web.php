@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\DemoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AttributeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', [DemoController::class, 'show'])->name('demo.show');
-
 
 #Login
 Route::get('/login', [LoginController::class, 'login']);
@@ -47,3 +44,7 @@ Route::get('/cart', [CartController::class, 'cart']);
 Route::get('/checkout', [CheckoutController::class, 'show']);
 
 Route::post('/pay', [CheckoutController::class, 'checkout'])->name('pay');
+
+#attribute
+Route::get('/create-attribute', [AttributeController::class,'create']);
+Route::post('/store-attribute', [AttributeController::class, 'store']);

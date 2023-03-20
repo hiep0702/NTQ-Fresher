@@ -5,12 +5,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Create Product</h4>
+                    <h4 class="mb-sm-0">Create Attribute</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
-                            <li class="breadcrumb-item active">Create Product</li>
+                            <li class="breadcrumb-item active">Create Attribute</li>
                         </ol>
                     </div>
 
@@ -19,48 +19,29 @@
         </div>
         <!-- end page title -->
 
-        <form id="createproduct-form" autocomplete="off" class="needs-validation" novalidate action="{{ URL::to('/store-product') }}" method="post">
+        <form id="createproduct-form" autocomplete="off" class="needs-validation" novalidate action="{{ URL::to('/store-attribute') }}" method="post">
             @csrf
             <div class="row">
                 <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label class="form-label" for="title">Product Title</label>
-                                    <input type="text" class="form-control" id="title" name="title" value=""
-                                        placeholder="Enter product title" required>
-                                    <div class="invalid-feedback">Please Enter a product title.</div>
-                                </div>
-                                <div>
-                                    <label>Product Description</label>
-    
-                                    <div class="mb-3">
-                                        <textarea style="background-color: initial; color: white; width: 1185px" name="description" id="description" cols="30" rows="10"></textarea>
-                                    </div>
+                                    <label class="form-label" for="slug">Slug</label>
+                                    <input type="text" class="form-control" id="slug" name="slug" value=""
+                                        placeholder="Enter slug" required>
+                                    <div class="invalid-feedback">Please Enter a slug.</div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="regular_price">Regular price</label>
-                                    <input type="number" class="form-control" name="regular_price" id="regular_price" value=""
-                                        placeholder="Enter product regular_price" required>
-                                    <div class="invalid-feedback">Please Enter a regular price.</div>
+                                    <label class="form-label" for="term_id">Term ID</label>
+                                    <input type="text" class="form-control" id="term_id" name="term_id" value=""
+                                        placeholder="Enter term id" required>
+                                    <div class="invalid-feedback">Please Enter a term id.</div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="sale_price">Sale price</label>
-                                    <input type="number" class="form-control" name="sale_price" id="sale_price" value=""
-                                        placeholder="Enter product sale_price" required>
-                                    <div class="invalid-feedback">Please Enter a sale price.</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="image">Product image</label>
-                                    <input type="file" class="form-control" name="image" id="image" value=""
-                                        placeholder="Enter product image">
-                                    <div class="invalid-feedback">Please Enter a product image.</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="stock">Stock</label>
-                                    <input type="number" class="form-control" name="stock" id="stock" value=""
-                                        placeholder="Enter product stock" required>
-                                    <div class="invalid-feedback">Please Enter a stock.</div>
+                                    <label class="form-label" for="value">Value</label>
+                                    <input type="text" class="form-control" id="value" name="value" value=""
+                                        placeholder="Enter value" required>
+                                    <div class="invalid-feedback">Please Enter a value.</div>
                                 </div>
                             </div>
                         </div>

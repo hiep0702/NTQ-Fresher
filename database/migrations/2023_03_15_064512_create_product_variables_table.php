@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->float('regular_price');
             $table->float('sale_price')->nullable();
+            $table->float('discount',8,2)->nullable();
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('terms', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
-            $table->string('type');
-            $table->text('description');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }
