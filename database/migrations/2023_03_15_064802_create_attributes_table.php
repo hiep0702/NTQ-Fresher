@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('attributes', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
+            $table->string('slug')->nullable();
+            $table->unsignedBigInteger('term_id');
             $table->string('value');
-            $table->string('brand');
+            $table->foreign('term_id')->references('id')->on('terms');
             $table->timestamps();
         });
     }
