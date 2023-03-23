@@ -47,6 +47,15 @@ class VariablesController extends Controller
             $data['sale_price']=$request->sale_price;
             $data['discount']=$request->discount;
 
+            if($request->has('file_upload'))
+            {
+                $file = $request->file_upload;
+                $ext = $request->file_upload->extension();
+                $file_name = time().'-'.'product.'.$ext;
+                $file->move(public_path('product-variables/uploads'), $file_name);
+            }
+            $request->merge(['image' => $file_name]);
+
             Variable::create($data);
         }
 
@@ -63,8 +72,6 @@ class VariablesController extends Controller
 
             Variable::create($data);
         }
-
-        // dd($data);
         
         return redirect('product-variables/'.$id);
     }

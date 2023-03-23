@@ -20,11 +20,11 @@ class ProductController extends Controller
 		return $this->productService->products();
 	}
 
-	public function productVariables()
-	{
-		// $this->productService->productVariables();
-		return view('clients.productVariables');
-	}
+	// public function productVariables()
+	// {
+	// 	// $this->productService->productVariables();
+	// 	return view('clients.productVariables');
+	// }
 
 	public function create()
 	{
@@ -33,6 +33,15 @@ class ProductController extends Controller
 
 	public function store(Request $request)
 	{
+		if($request->has('file_upload'))
+		{
+			$file = $request->file_upload;
+			$ext = $request->file_upload->extension();
+			$file_name = time().'-'.'product.'.$ext;
+			$file->move(public_path('uploads'), $file_name);
+		}
+		$request->merge(['image' => $file_name]);
+		
 		$this->productService->store($request->all());
 
 		return redirect('products');

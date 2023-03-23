@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="image">Product image</label>
-                                    <input type="file" class="form-control" name="image" id="image" value=""
+                                    <input type="file" class="form-control" name="file_upload" id="image" value=""
                                         placeholder="Enter product image">
                                     <div class="invalid-feedback">Please Enter a product image.</div>
                                 </div>
