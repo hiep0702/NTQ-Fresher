@@ -424,6 +424,7 @@
                                         <th>Regular price</th>
                                         <th>Stock</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>   
                                 </thead>
                                 <tbody>
@@ -435,6 +436,7 @@
                                             <td>{{ number_format($item->regular_price) . ' ' . 'VNĐ' }}</td>
                                             <td>{{ $item->stock }}</td>
                                             <td>{{ $item->status }}</td>
+                                            <td><a href="{{ URL::to('/product-variables/'.$item->id) }}">Detail</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

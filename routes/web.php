@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\VariablesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,6 @@ Route::post('/singup', [LoginController::class, 'singUp']);
 
 #product
 Route::get('/products', [ProductController::class, 'products']);
-Route::get('/product-detail', [ProductController::class, 'productDetails']);
 Route::get('/create-product', [ProductController::class, 'create']);
 Route::get('/edit-product/{id}', [ProductController::class, 'edit']);
 
@@ -48,3 +48,9 @@ Route::post('/pay', [CheckoutController::class, 'checkout'])->name('pay');
 #attribute
 Route::get('/create-attribute', [AttributeController::class,'create']);
 Route::post('/store-attribute', [AttributeController::class, 'store']);
+
+#variables
+Route::get('/product-variables/{id}', [VariablesController::class, 'find']);
+Route::get('/create-variable', [VariablesController::class, 'create']);
+
+Route::post('/store-variable', [VariablesController::class, 'store']);

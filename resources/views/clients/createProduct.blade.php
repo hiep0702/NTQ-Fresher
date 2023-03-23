@@ -19,7 +19,7 @@
         </div>
         <!-- end page title -->
 
-        <form id="createproduct-form" autocomplete="off" class="needs-validation" novalidate action="{{ URL::to('/store-product') }}" method="post">
+        <form id="createproduct-form" autocomplete="off" class="needs-validation" novalidate action="{{ URL::to('/store-product') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-lg-12">

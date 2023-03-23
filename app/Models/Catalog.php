@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Catalog extends Model
 {
     use HasFactory;
-
-    protected $table= 'product_variables';
  
     protected $fillable = [
         'title',

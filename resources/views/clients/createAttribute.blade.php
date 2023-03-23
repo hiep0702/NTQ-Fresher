@@ -26,12 +26,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label class="form-label" for="slug">Slug</label>
-                                    <input type="text" class="form-control" id="slug" name="slug" value=""
-                                        placeholder="Enter slug" required>
-                                    <div class="invalid-feedback">Please Enter a slug.</div>
-                                </div>
-                                <div class="mb-3">
                                     <label class="form-label" for="term_id">Term ID</label>
                                     <input type="text" class="form-control" id="term_id" name="term_id" value=""
                                         placeholder="Enter term id" required>
