@@ -383,14 +383,14 @@
                                             <a class="nav-link active fw-semibold" data-bs-toggle="tab"
                                                 href="#productnav-all" role="tab">
                                                 All <span
-                                                    class="badge badge-soft-danger align-middle rounded-pill ms-1">12</span>
+                                                    class="badge badge-soft-danger align-middle rounded-pill ms-1"></span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link fw-semibold" data-bs-toggle="tab"
                                                 href="#productnav-published" role="tab">
                                                 Published <span
-                                                    class="badge badge-soft-danger align-middle rounded-pill ms-1">5</span>
+                                                    class="badge badge-soft-danger align-middle rounded-pill ms-1"></span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -431,7 +431,9 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $item->title }}</td>
-                                            <td><img src="{{ $item->image }}" alt=""></td>
+                                            <td>
+                                                <img src="uploads/{{ $item->image }}" height="100" width="100">
+                                            </td>
                                             <td>{{ $item->description }}</td>
                                             <td>{{ number_format($item->regular_price) . ' ' . 'VNĐ' }}</td>
                                             <td>{{ $item->stock }}</td>

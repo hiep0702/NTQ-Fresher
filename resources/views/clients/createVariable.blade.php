@@ -19,7 +19,7 @@
         </div>
         <!-- end page title -->
 
-        <form id="createproduct-form" autocomplete="off" class="needs-validation" novalidate action="{{ URL::to('/store-variable') }}" method="post">
+        <form id="createproduct-form" enctype="multipart/form-data" autocomplete="off" class="needs-validation" novalidate action="{{ URL::to('/store-variable') }}" method="post">
             @csrf
             <div class="row">
                 <div class="col-lg-12">
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="image">Product image</label>
-                                    <input type="file" class="form-control" name="image" id="image" value=""
+                                    <input type="file" class="form-control" name="file_upload" id="image" value=""
                                         placeholder="Enter product image">
                                     <div class="invalid-feedback">Please Enter a product image.</div>
                                 </div>

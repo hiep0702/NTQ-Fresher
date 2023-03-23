@@ -96,7 +96,9 @@
                                             <td>{{ $item->product_id }}</td>
                                             <td>{{ $item->attribute_id }}</td>
                                             <td>{{ $item->description }}</td>
-                                            <td><img src="{{ $item->image }}" alt=""></td>
+                                            <td>
+                                                <img src="uploads/{{ $item->image }}" height="100" width="100">
+                                            </td>
                                             <td>{{ number_format($item->regular_price) . ' ' . 'VNĐ' }}</td>
                                             <td>{{ number_format($item->sale_price) . ' ' . 'VNĐ' }}</td>
                                             <td>{{ $item->stock }}</td>
