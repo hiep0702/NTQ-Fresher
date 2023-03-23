@@ -14,4 +14,9 @@ class Attribute extends Model
         'term_id',
         'value',
     ];
+
+    public function variable()
+    {
+        return $this->hasMany(Variable::class);
+    }
 }

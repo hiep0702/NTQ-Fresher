@@ -25,11 +25,11 @@ class ProductService
 		return view('clients.products', compact('data'));
 	}
 
-	public function productDetails($id)
+	public function productVariables($id)
 	{
 		$data = $this->productRepository->find($id);
-
-		return view('clients.productDetail', compact('data'));
+		
+		
 	}
 
 	public function store($data)

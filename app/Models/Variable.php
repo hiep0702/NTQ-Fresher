@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Variable extends Model
 {
     use HasFactory;
-
+    protected $table= 'product_variables';
     protected $fillable = [
         'product_id',
         'attribute_id',
@@ -17,5 +17,11 @@ class Variable extends Model
         'image',
         'regular_price',
         'sale_price',
+        'discount',
     ];
+    
+    public function Attribute()
+    {
+        return $this->belongsTo(Attribute::class);
+    }
 }

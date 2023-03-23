@@ -20,9 +20,10 @@ class ProductController extends Controller
 		return $this->productService->products();
 	}
 
-	public function productDetails($id)
+	public function productVariables()
 	{
-		return $this->productService->productDetails($id);
+		// $this->productService->productVariables();
+		return view('clients.productVariables');
 	}
 
 	public function create()
